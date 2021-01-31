@@ -28,9 +28,7 @@ settings = {
     'show':                         True,
 ```
 ### Computer training mode
-```diff
-- *If you just want to reproduce the demo, just run the default code*
-```
+***If you just want to reproduce the demo, just run the default code***
 1. Open *setting.py*.
 2. First, change **'player'** to **'computer'**.
 ```python
@@ -85,30 +83,28 @@ Click menu **Action** -> **Start** or **Ctrl+S**.
 Click menu **Action** -> **Set Fps** or **Ctrl+H**.
 After setting new fps, restart(**Ctrl+S**) the game.
 ### Create new map
-```diff
 *---Could only create during playing---*
-```
 1. Click menu **Action** -> **New Map** or **Ctrl+M**
 2. Click somewhere on the map. If it is empty, it will generate a wall. If there already exist a wall, the wall would be clear.
-3. At the moment you restart\(**Ctrl+S**\) the game, this new map add to the map file.
+3. At the moment you restart\(**Ctrl+S**\) the game, this new map add to the map file.    
 ![](https://i.imgur.com/Ds8U0PE.gif)
 ## Network Input
 ### Vision part
-Same as the [snakeAI](https://github.com/Chrispresso/SnakeAI), this algorithm collect 8-direction vision to network input.
+Same as the [snakeAI](https://github.com/Chrispresso/SnakeAI), this algorithm collect 8-direction vision to network input.    
 In each direction, it records **how many steps the adventurer move along the direction before he rush into a wall/treasure**.
 ![](https://i.imgur.com/nU9WSny.jpg)
 ### now direction part
 Same as the [snakeAI](https://github.com/Chrispresso/SnakeAI), the direction now adventurer moving is being given to the network input.
 ### treaure position part
-Since vision part only search 8-direction, there is a situation that some time the treaure may not be found along these 8-direction.
-In this Algorithm, it record treasure position by which quadrant the treasure in. For example, now the treasure is in the \(1, 1\) quadrant\(see the picture below\).
+Since vision part only search 8-direction, there is a situation that some time the treaure may not be found along these 8-direction.    
+In this Algorithm, it record treasure position by which quadrant the treasure in. For example, now the treasure is in the \(1, 1\) quadrant\(see the picture below\).    
 ![](https://i.imgur.com/lopMvB5.jpg)
 ### accumulated part
-For each case in game Snake, snake could just walk the longest path \(pass every node on map like hamilton cycle\) and then complete the mission. In other words, there exists a general solution to the snake game.Unfortunately, this maze game has random map. Unless each map overlap with others, there doesn't exist general solution. We need to give the network some information from past.
+For each case in game Snake, snake could just walk the longest path \(pass every node on map like hamilton cycle\) and then complete the mission. In other words, there exists a general solution to the snake game.Unfortunately, this maze game has random map. Unless each map overlap with others, there doesn't exist general solution. We need to give the network some information from past.    
 Therefore, I decided to add this part to the network input. It comes from **two of the last time network ouput**. Just like RNN does, I expect this two output could repeatedly pass the information from past. 
 ## Network output
-4 output for One-hot encode direction.
-2 output for accumulated part.
+4 output for One-hot encode direction.    
+2 output for accumulated part.    
 Total 6 output.
 ## Something else
 1. At first time, I didn't add accumulated part and do not change the map during each play. It seems train well, but the result is just for certain map only.

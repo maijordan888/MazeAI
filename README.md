@@ -15,7 +15,7 @@ Training Machine to automatically complete this game by using **Forward Network*
 2. Set your prefer **'fps'** and check the term **'show'** is setting with **True**.
 3. Run *maze_app.py*
 4. Use ↑, ↓, ←, → to control the adventurer.
-```python=
+```python
 settings = {
     'board_size':                  (11, 11),
     #### Simple run setting part ####

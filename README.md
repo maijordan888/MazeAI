@@ -28,10 +28,12 @@ settings = {
     'show':                         True,
 ```
 ### Computer training mode
-* ==*If you just want to reproduce the demo, just run the default code*==
+```diff
+- *If you just want to reproduce the demo, just run the default code*
+```
 1. Open *setting.py*.
 2. First, change **'player'** to **'computer'**.
-```python=
+```python
 settings = {
     ...
     'player':                       'computer', 
@@ -39,7 +41,7 @@ settings = {
 ```
 3. Set your prefer **'fps'** and **'show'**.
 ==*Recommand setting: \(fps:200, show:True\) or \(fps:1000, show:False\)*==
-```python=
+```python
 settings = {
     ...
     # Fps
@@ -54,7 +56,7 @@ settings = {
     - Set **PGP** to 0 means we don't generate new maze, we just totally use the copies of the old one to be our first generation. 
     - Set **PGP** between 0 to 1 means we generate **PGP** portion at random in first generation and use the copyies of old one for others.
  
-```python=
+```python
 settings = {
     ...
     # Parent Generate Percentage
@@ -66,7 +68,7 @@ settings = {
     ...
 ```
 5. Last, set the save file path for maze. Whenever we find a better parameter than before, we save it to the **'smfp'**(Save maze file path).
-```python=
+```python
 settings = {
     ...
     # Save maze file path
@@ -83,7 +85,9 @@ Click menu **Action** -> **Start** or **Ctrl+S**.
 Click menu **Action** -> **Set Fps** or **Ctrl+H**.
 After setting new fps, restart(**Ctrl+S**) the game.
 ### Create new map
-==*---Could only create during playing---*==
+```diff
+*---Could only create during playing---*
+```
 1. Click menu **Action** -> **New Map** or **Ctrl+M**
 2. Click somewhere on the map. If it is empty, it will generate a wall. If there already exist a wall, the wall would be clear.
 3. At the moment you restart\(**Ctrl+S**\) the game, this new map add to the map file.
